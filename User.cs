@@ -6,8 +6,8 @@ namespace DZ_03
     {
         // PROPERTIES
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string FirstName { get; set; } = "NO_NAME";      // INITIAL VALUE IS "NO_NAME".
+        public string LastName { get; set; } = "NO_NAME";
         // USING OF KEYWORD init TO INITIALIZE Age PROPERTY ONLY ONCE, AND THEN MAKE IT immutable.
         public byte Age { get; init; }
         // THE CREATION OF Gender PROPERTY WHICH CORRESPONDS TO enum UserGender TYPE.
