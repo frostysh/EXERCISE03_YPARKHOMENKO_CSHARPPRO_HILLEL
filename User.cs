@@ -1,4 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;      // CONNECTION TO SPECIAL CLASS TO USE ATTRIBUTES FOR THE CONSTRUCTOR.
 
 namespace DZ_03
 {
@@ -23,11 +23,12 @@ namespace DZ_03
 
         // CONSTRUCTOR WICH SETUPS Age PROPERTY.
         [SetsRequiredMembers]    // PARAMETER THAT USED CONFIGURE CONSTRUCTOR TO SHOW THAT SETUP AGE WITH DEFAULT VALUE WILL BE DONE IN ANY CASE, AND THAT BECAUSE CALLER IS NOT FORCED TO ASSIGN VALUE ON COMPILATION STAGE... :S AT LEAST AS I HAVE UNDERSTAND.
-        public User(string firstName, string lastName, byte age)
+        public User(string firstName, string lastName, byte age, UserGender gender)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Age = age;     // ASSIGN PROPERTY Age VIA CONSTRUCTOR METHOD.
+            this.Gender = gender;
         }
     }
 
