@@ -45,6 +45,7 @@ namespace DZ_03
         [SetsRequiredMembers]    // PARAMETER THAT USED CONFIGURE CONSTRUCTOR TO SHOW THAT SETUP AGE WITH DEFAULT VALUE WILL BE DONE IN ANY CASE, AND THAT BECAUSE CALLER IS NOT FORCED TO ASSIGN VALUE ON COMPILATION STAGE... :S AT LEAST AS I HAVE UNDERSTAND.
         public User(byte age)
         {
+            Console.WriteLine("THE PARAMETRIC CONSTRUCTOR OF User INITIALIZED!");
             // DEFAULT VALUES OF PROPERTIES.
             this.FirstName = "NO_NAME";
             this.LastName = "NO_NAME";
@@ -53,7 +54,7 @@ namespace DZ_03
         }
     }
 
-    // THE enum TYPE IS INITIALIZED, IT CONNECTS TO THE User CLASS.
+    // THE enum TYPE IS INITIALIZED, IT CONNECTS TO THE User CLASS AND USES AS THE BASE VALUE TYPE byte.
     enum UserGender : byte
     {
         Unknown = 0,

@@ -4,12 +4,12 @@ namespace DZ_03
     {
         static void Main(string[] agrs)
         {
+            User user = new User();     // THE CREATION OF User-CLASS INSTANCE WITH DEFAULT CONSTRUCTOR.
+            Console.WriteLine();
+
             // CONSOLE INPUT OF AGE.
             Console.Write("PEASE, ENTER THE AGE: ");
             User user1 = new User(byte.Parse(Console.ReadLine()));     // CREATION OF User-CLASS INSTANCE WITH CONSTRUCTOR WHICH HAS PARAMETER Age = age WITH init IN PROPERTY, INITIALIZATION ONLY ONCE AND THEN Age IS IMMUTABLE.
-            Console.WriteLine();
-
-            User user = new User();     // THE CREATION OF User-CLASS INSTANCE WITH DEFAULT CONSTRUCTOR.
             Console.WriteLine();
 
             // CONSOLE INPUT OF GENDER AND ASSIGNMENT IT TO THE INSTANCE OF THE CLASS.
