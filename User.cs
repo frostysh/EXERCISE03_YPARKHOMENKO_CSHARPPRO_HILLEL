@@ -32,8 +32,8 @@ namespace DZ_03
     // THE enum TYPE IS INITIALIZED, IT CONNECTS TO THE User CLASS.
     enum UserGender : byte
     {
-        Male = 0,
-        Female = 1,
-        Unknown = 2
+        Unknown = 0,
+        Male = 10,
+        Female = 11
     }
 }
