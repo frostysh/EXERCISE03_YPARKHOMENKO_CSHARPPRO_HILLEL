@@ -31,9 +31,21 @@ namespace DZ_03
                 string firstName = Console.ReadLine();
                 Console.WriteLine();
 
+                // THE PROGRAM CHECKS INPUT FOR firstName ON EMPTY LINE, ONLY WHITE SPACES AND NULL.
+                if (String.IsNullOrWhiteSpace(firstName))
+                {
+                    throw new FormatException();    // PROGRAM THROWS FORMAT EXCEPTION IN CASE OF firstName INPUT CONSIST OF WHITE SPACES ONLY, OR THE NULL OR AN EMPTY LINE.
+                }
+
                 Console.Write("PLEASE, ENTER THE LAST NAME: ");
                 string lastName = Console.ReadLine();
                 Console.WriteLine();
+
+                // THE PROGRAM CHECKS INPUT FOR lastName ON EMPTY LINE, ONLY WHITE SPACES AND NULL.
+                if (String.IsNullOrWhiteSpace(firstName))
+                {
+                    throw new FormatException();
+                }
 
                 // CONSOLE INPUT OF AGE.
                 Console.Write("PLEASE, ENTER THE AGE: ");
@@ -67,6 +79,10 @@ namespace DZ_03
             catch (OverflowException rangeException)
             {
                 Console.WriteLine($"{rangeException.Message}");
+            }
+            catch (NullReferenceException nullException)        // AN EXCEPTION HANDLE CONSTRUCTION THAT SHOULD COVER COMPILER WARNINGS ABOUT SO-CALLED NULLS... I HOPE.
+            {
+                Console.WriteLine($"{nullException.Message}");
             }
             catch
             {
