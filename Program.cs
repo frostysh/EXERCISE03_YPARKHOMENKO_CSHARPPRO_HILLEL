@@ -117,6 +117,7 @@ namespace DZ_03
 
                 // IF GENDER IS SOMETHING DIFFERENT FROM GENDER ENUMERATION, TERMINATE THE PROGRAM.
                 // IF IsDefined() METHOD RETURN TRUE — THE PROPER GENDER SELECTED FROM UserGender ENUMERATION, AND DUE TO THE NEGATION OPERATOR THE PROGRAM AVOIDS THE CODE INSIDE if() CONSTRUCTION. ELSE TERMINATE THE PROGRAM.
+                // https://learn.microsoft.com/en-us/dotnet/api/system.enum.isdefined?view=net-8.0
                 if (!Enum.IsDefined(typeof(UserGender), gender))
                 {
                     throw new OverflowException();
