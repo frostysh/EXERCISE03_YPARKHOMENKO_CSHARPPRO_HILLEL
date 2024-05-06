@@ -104,6 +104,12 @@ namespace DZ_03
                 byte age = byte.Parse(Console.ReadLine());
                 Console.WriteLine();
 
+                // IF AGE IS TOO OLD, TERMINATE PROGRAM.
+                if (age >= 110)
+                {
+                    throw new OverflowException();
+                }
+
                 // CONSOLE INPUT OF GENDER.
                 Console.Write("PLEASE, ENTER THE GENDER (0 — UNKNOWN, 10 — MALE, 11 — FEMALE): ");
                 UserGender gender = (UserGender)byte.Parse(Console.ReadLine());
