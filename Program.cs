@@ -13,7 +13,7 @@ namespace DZ_03
             Console.WriteLine();
 
             // CONSOLE INPUT OF GENDER AND ASSIGNMENT IT TO THE INSTANCE OF THE CLASS.
-            Console.Write("PLEASE, ENTER THE GENDER (0 — MALE, 1 — FEMALE, 2 — UNKNOWN): ");
+            Console.Write("PLEASE, ENTER THE GENDER (0 — UNKNOWN, 10 — MALE, 11 — FEMALE): ");
             user1.Gender = (UserGender)byte.Parse(Console.ReadLine());
             Console.WriteLine();
 
