@@ -115,6 +115,13 @@ namespace DZ_03
                 UserGender gender = (UserGender)byte.Parse(Console.ReadLine());
                 Console.WriteLine();
 
+                // IF GENDER IS SOMETHING DIFFERENT FROM GENDER ENUMERATION, TERMINATE THE PROGRAM.
+                // IF IsDefined() METHOD RETURN TRUE — THE PROPER GENDER SELECTED FROM UserGender ENUMERATION, AND DUE TO THE NEGATION OPERATOR THE PROGRAM AVOIDS THE CODE INSIDE if() CONSTRUCTION. ELSE TERMINATE THE PROGRAM.
+                if (!Enum.IsDefined(typeof(UserGender), gender))
+                {
+                    throw new OverflowException();
+                }
+
                 // CREATION OF THE SECOND User-CLASS INSTANCE WITH CONSTRUCTOR WHICH HAS PARAMETER Age = age WITH init IN PROPERTY, INITIALIZATION ONLY ONCE AND THEN Age IS IMMUTABLE.
                 // IT IS A COMBINED WAY TO CREATE AN INSTANCE, WE USE THE CONSTRUCTOR WITH A PARAMETER AND THE OBJECT INITIALIZER.
                 User user1 = new User(age)
