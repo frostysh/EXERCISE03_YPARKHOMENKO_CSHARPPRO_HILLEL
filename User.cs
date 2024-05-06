@@ -13,6 +13,14 @@ namespace DZ_03
         // THE CREATION OF Gender PROPERTY WHICH CORRESPONDS TO enum UserGender TYPE.
         public UserGender Gender { get; set; }
 
+        // METHODS
+
+        // THE METHOD ToString() FROM System.Object OVERRIDED TO MAKE PROPER OUTPUT FOR INSTANCES OF User.
+        public override string ToString()
+        {
+            return $"Hi, my name is {FirstName} and last name {LastName}. I am {20} years old. I am {Gender}.";
+        }
+
         // CONSTRUCTORS
 
         // DEFAULT CONSTRUCTOR WITHOUT PARAMETERS.
