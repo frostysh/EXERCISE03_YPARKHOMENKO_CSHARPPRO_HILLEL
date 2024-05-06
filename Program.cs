@@ -1,12 +1,28 @@
 using System;
 using System.Runtime.Intrinsics.X86;
+using System.Text.RegularExpressions;
 
 namespace DZ_03
 {
     internal class Program
     {
+        // FIELDS
+
+        // PROGRAM CLASS USES PRIVATE CONSTANT FOR REG EXPRESSIONS VALIDATIONS.
+        private const int _timeoutRegexCheckup = 500;
+        private const string _patternNameRegex = @"(\A[a-z])|(\W)|(\d)|(_)";
+        // USED REGULAR EXPRESSIONS EXPLANATIONS:
+        // \A — WORK WITH THE FIRST CHARACTER IN LINE.
+        // (\A[a-z]) — IF THE FIRST CHARACTER IS ALPHABETIC LOWER CASE LATIN, THEN RETURN TRUE.
+        // (\W) — IF IN THE LINE EXIST ANY OF CHARACTERS DIFFERENT FROM "_", "[a - z]", "[A - Z]", "[0 - 9]", THEN RETURN TRUE.
+        // (\d) — IF IN THE LINE EXIST CHARACTERS "[0 - 9]", THEN RETURN TRUE.
+        // (_) — IF IN THE LINE EXIST CHARACTER "_", THEN RETURN TRUE.
+        // | — LOGICALC "OR" OPERATOR.
+
+        // METHODS
+        
         static void Main(string[] agrs)
-        {
+        {   
             // THE CREATION OF THE FIRST User-CLASS INSTANCE WITH HELP OF AN OBJECT INITIALIZER.
             User user = new User
             {
@@ -37,12 +53,43 @@ namespace DZ_03
                     throw new FormatException();    // PROGRAM THROWS FORMAT EXCEPTION IN CASE OF firstName INPUT CONSIST OF WHITE SPACES ONLY, OR THE NULL OR AN EMPTY LINE.
                 }
 
+                // IF THE firstName IS TOO LONG, THEN THROW THE EXCEPTION.
+                if (firstName.Length >= 64)
+                {
+                    throw new OverflowException();
+                }
+
+                // A VALIDATION WITH HELP OF REGULAR EXPRESSIONS.
+                // JUST TO MAKE THE SOURCE CODE MORE READABLE, LOCALIZE REGEX IN THE BOOL VALUE.
+                // 0 — MEANS NO OPTION IS SET.
+                bool nameIsMatch = Regex.IsMatch(firstName, _patternNameRegex, 0,  TimeSpan.FromMilliseconds(_timeoutRegexCheckup));
+                // IF THE NAME MATCH PATTERN, TERMINATE THE PROGRAM.
+                if (nameIsMatch)
+                {
+                    throw new FormatException();
+                }
+
+                // LAST NAME SECTION.
                 Console.Write("PLEASE, ENTER THE LAST NAME: ");
                 string lastName = Console.ReadLine();
                 Console.WriteLine();
 
                 // THE PROGRAM CHECKS INPUT FOR lastName ON EMPTY LINE, ONLY WHITE SPACES AND NULL.
                 if (String.IsNullOrWhiteSpace(firstName))
+                {
+                    throw new FormatException();
+                }
+
+                // IF THE lastName IS TOO LONG, THEN THROW THE EXCEPTION.
+                if (lastName.Length >= 64)
+                {
+                    throw new OverflowException();
+                }
+
+                // REGEX VALIDATION OF LAST NAME.
+                nameIsMatch = Regex.IsMatch(lastName, _patternNameRegex, 0, TimeSpan.FromMilliseconds(_timeoutRegexCheckup));
+                // IF THE NAME MATCH PATTERN, TERMINATE THE PROGRAM.
+                if (nameIsMatch)
                 {
                     throw new FormatException();
                 }
