@@ -104,8 +104,8 @@ namespace DZ_03
                 byte age = byte.Parse(Console.ReadLine());
                 Console.WriteLine();
 
-                // IF AGE IS TOO OLD, TERMINATE PROGRAM.
-                if (age >= 110)
+                // IF AGE IS TOO OLD, OR TOO YOUNG THEN TERMINATE THE PROGRAM.
+                if ((age >= 110) || (age <= 3))
                 {
                     throw new OverflowException();
                 }
