@@ -6,12 +6,12 @@ namespace DZ_03
     {
         // PROPERTIES
 
-        public string FirstName { get; set; }     // INITIAL VALUE IS "NO_NAME".
-        public string LastName { get; set; }
+        public required string FirstName { get; set; }     // INITIAL VALUE IS "NO_NAME".
+        public required string LastName { get; set; }
         // USING OF KEYWORD init TO INITIALIZE Age PROPERTY ONLY ONCE, AND THEN MAKE IT immutable.
-        public byte Age { get; init; }
+        public required byte Age { get; init; }
         // THE CREATION OF Gender PROPERTY WHICH CORRESPONDS TO enum UserGender TYPE.
-        public UserGender Gender { get; set; }      // THE DEFAULT VALUE IS Unknown = 0.
+        public required UserGender Gender { get; set; }      // THE DEFAULT VALUE IS Unknown = 0.
 
         // METHODS
 
@@ -35,10 +35,6 @@ namespace DZ_03
         public User()
         {
             Console.WriteLine("THE DEFAULT CONSTRUCTOR OF User INITIALIZED!");
-
-            // DEFAULT VALUES OF PROPERTIES.
-            this.FirstName = "NO_NAME";
-            this.LastName = "NO_NAME";
         }
 
         // CONSTRUCTOR WICH SETUPS Age PROPERTY.
@@ -46,9 +42,6 @@ namespace DZ_03
         public User(byte age)
         {
             Console.WriteLine("THE PARAMETRIC CONSTRUCTOR OF User INITIALIZED!");
-            // DEFAULT VALUES OF PROPERTIES.
-            this.FirstName = "NO_NAME";
-            this.LastName = "NO_NAME";
 
             this.Age = age;     // ASSIGN PROPERTY Age VIA CONSTRUCTOR METHOD.
         }
