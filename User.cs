@@ -21,11 +21,11 @@ namespace DZ_03
             // THE CHECK TO MAKE A PROPER OUT PUT FOR THE UNDERAGES.
             if (this.Age <= 10)
             {
-                return $"Hi, my name is {this.FirstName} and last name {this.LastName}. I am {this.Age} years old. I am {this.Gender}.";
+                return $"Hi, my name is {this.FirstName} and last name {this.LastName}. I am a baby. I am {this.Gender}.";
             }
             else
             {
-                return $"Hi, my name is {this.FirstName} and last name {this.LastName}. I am a baby. I am {this.Gender}.";
+                return $"Hi, my name is {this.FirstName} and last name {this.LastName}. I am {this.Age} years old. I am {this.Gender}.";
             }
         }
 

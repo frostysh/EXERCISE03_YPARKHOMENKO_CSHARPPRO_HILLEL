@@ -24,6 +24,7 @@ namespace DZ_03
 
             Console.Write("PLEASE, ENTER THE LAST NAME: ");
             user1.LastName = Console.ReadLine();
+            Console.WriteLine();
 
             // SHOW INFORMATION ABOUT THE INSTANCE VIA CONSOLE.
             Console.WriteLine(user1.ToString());
