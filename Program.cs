@@ -63,7 +63,6 @@ namespace DZ_03
                 {
                     FirstName = firstName,
                     LastName = lastName,
-                    Age = age,
                     Gender = gender
                 };
 
