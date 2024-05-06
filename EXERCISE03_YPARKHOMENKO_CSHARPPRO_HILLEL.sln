@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EXERCISE03_YPARKHOMENKO_CSHARPPRO_HILLEL", "EXERCISE03_YPARKHOMENKO_CSHARPPRO_HILLEL.csproj", "{155BCC83-FEE6-4808-939C-81557170C5E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{155BCC83-FEE6-4808-939C-81557170C5E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{155BCC83-FEE6-4808-939C-81557170C5E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{155BCC83-FEE6-4808-939C-81557170C5E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{155BCC83-FEE6-4808-939C-81557170C5E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
