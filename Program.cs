@@ -26,6 +26,15 @@ namespace DZ_03
             // THE try-catch-finally CONSTRUCTION TO HANDLE EXCEPTIONS.
             try
             {
+                // THE CONSOLE INPUT AND ASSIGNMENT INPUT OF THE STRING PROPERTIES FirstName AND LastName.
+                Console.Write("PLEASE, ENTER THE FIRST NAME: ");
+                string firstName = Console.ReadLine();
+                Console.WriteLine();
+
+                Console.Write("PLEASE, ENTER THE LAST NAME: ");
+                string lastName = Console.ReadLine();
+                Console.WriteLine();
+
                 // CONSOLE INPUT OF AGE.
                 Console.Write("PLEASE, ENTER THE AGE: ");
                 byte age = byte.Parse(Console.ReadLine());
@@ -34,15 +43,6 @@ namespace DZ_03
                 // CONSOLE INPUT OF GENDER.
                 Console.Write("PLEASE, ENTER THE GENDER (0 — UNKNOWN, 10 — MALE, 11 — FEMALE): ");
                 UserGender gender = (UserGender)byte.Parse(Console.ReadLine());
-                Console.WriteLine();
-
-                // THE CONSOLE INPUT AND ASSIGNMENT INPUT OF THE STRING PROPERTIES FirstName AND LastName.
-                Console.Write("PLEASE, ENTER THE FIRST NAME: ");
-                string firstName = Console.ReadLine();
-                Console.WriteLine();
-
-                Console.Write("PLEASE, ENTER THE LAST NAME: ");
-                string lastName = Console.ReadLine();
                 Console.WriteLine();
 
                 // CREATION OF THE SECOND User-CLASS INSTANCE WITH CONSTRUCTOR WHICH HAS PARAMETER Age = age WITH init IN PROPERTY, INITIALIZATION ONLY ONCE AND THEN Age IS IMMUTABLE.
