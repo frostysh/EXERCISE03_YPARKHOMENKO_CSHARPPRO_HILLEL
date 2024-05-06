@@ -1,5 +1,10 @@
 using System.Diagnostics.CodeAnalysis;      // CONNECTION TO SPECIAL CLASS TO USE ATTRIBUTES FOR THE CONSTRUCTOR.
 
+// HILLEL, C# PRO COURSE, TEACHER: MARIIA DZIVINSKA
+// HOMEWORK 03: "Console program with objects"
+// STUDENT: PARKHOMENKO YAROSLAV
+// DATE: 06-MAY-2024
+
 namespace DZ_03
 {
     internal class User

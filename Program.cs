@@ -1,6 +1,11 @@
 using System;
 using System.Runtime.Intrinsics.X86;
-using System.Text.RegularExpressions;
+using System.Text.RegularExpressions;   // TO USE REGULAR EXPRESSION METHODS FROM C#-LIBRARIES.
+
+// HILLEL, C# PRO COURSE, TEACHER: MARIIA DZIVINSKA
+// HOMEWORK 03: "Console program with objects"
+// STUDENT: PARKHOMENKO YAROSLAV
+// DATE: 06-MAY-2024
 
 namespace DZ_03
 {
@@ -9,7 +14,7 @@ namespace DZ_03
         // FIELDS
 
         // PROGRAM CLASS USES PRIVATE CONSTANT FOR REG EXPRESSIONS VALIDATIONS.
-        private const int _timeoutRegexCheckup = 500;
+        private const int _timeoutRegexCheckup = 500;   // MAXIMUM ALLOWED VALIDATION TIME.
         private const string _patternNameRegex = @"(\A[a-z])|(\W)|(\d)|(_)";
         // USED REGULAR EXPRESSIONS EXPLANATIONS:
         // \A — WORK WITH THE FIRST CHARACTER IN LINE.
