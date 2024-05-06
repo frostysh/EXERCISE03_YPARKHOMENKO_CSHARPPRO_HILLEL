@@ -11,7 +11,7 @@ namespace DZ_03
     {
         // PROPERTIES
 
-        public required string FirstName { get; set; }     // INITIAL VALUE IS "NO_NAME".
+        public required string FirstName { get; set; }
         public required string LastName { get; set; }
         // USING OF KEYWORD init TO INITIALIZE Age PROPERTY ONLY ONCE, AND THEN MAKE IT immutable.
         public required byte Age { get; init; }
