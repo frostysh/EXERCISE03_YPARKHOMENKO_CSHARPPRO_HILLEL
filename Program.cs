@@ -33,7 +33,7 @@ namespace DZ_03
                 FirstName = "YAROSLAV",
                 LastName = "PARKHOMENKO",
                 Age = 33,
-                Gender = UserGender.Male
+                Gender = UserGender.male
             };
 
             Console.WriteLine("THE OBJECT INITIALIZER USED INSTEAD OF THE DEFAULT CONSTRUCTOR OF User CLASS!");
@@ -72,9 +72,10 @@ namespace DZ_03
                     throw new OverflowException();
                 }
 
-                // CONSOLE INPUT OF GENDER.
+                // CONSOLE INPUT AND PARSING OF GENDER THAN CONVER IT INTO CORRESPONDING enum. ToLower() USED BECAUSE IN UserGender STRING VALUE ARE IN THE LOWER CASE.
                 Console.Write("PLEASE, ENTER THE GENDER (0 — UNKNOWN, 10 — MALE, 11 — FEMALE): ");
-                UserGender gender = (UserGender)byte.Parse(Console.ReadLine());
+                UserGender gender = (UserGender)Enum.Parse(typeof(UserGender), Console.ReadLine().ToLower());
+
                 Console.WriteLine();
 
                 #region
@@ -84,7 +85,7 @@ namespace DZ_03
                 #endregion
                 if (!Enum.IsDefined(typeof(UserGender), gender))
                 {
-                    throw new OverflowException();
+                    throw new FormatException();
                 }
 
                 User user1 = new User(age)
@@ -112,6 +113,10 @@ namespace DZ_03
             catch (NullReferenceException nullException)
             {
                 Console.WriteLine($"{nullException.Message}");
+            }
+            catch (ArgumentException argumentException)
+            {
+                Console.WriteLine($"{argumentException.Message}");
             }
             catch
             {

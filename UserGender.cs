@@ -9,8 +9,8 @@ namespace DZ_03
     // 'Unknown' IS THE DEFAULT VALUE.
     enum UserGender : byte
     {
-        Unknown = 0,
-        Male = 10,
-        Female = 11
+        unknown = 0,
+        male = 10,
+        female = 11
     }
 }
