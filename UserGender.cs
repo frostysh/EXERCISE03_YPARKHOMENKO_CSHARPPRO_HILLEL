@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DZ_03
 {
+    // 'Unknown' IS THE DEFAULT VALUE.
     enum UserGender : byte
     {
         Unknown = 0,

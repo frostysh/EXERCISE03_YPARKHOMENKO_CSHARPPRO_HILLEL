@@ -13,9 +13,10 @@ namespace DZ_03
     {
         // FIELDS
 
-        // PROGRAM CLASS USES PRIVATE CONSTANT FOR REG EXPRESSIONS VALIDATIONS.
-        private const int _timeoutRegexCheckup = 500;   // MAXIMUM ALLOWED VALIDATION TIME.
+        // MAXIMUM ALLOWED VALIDATION TIME.
+        private const int _timeoutRegexCheckup = 500;       
         private const string _patternNameRegex = @"(\A[a-z])|(\W)|(\d)|(_)";
+        #region
         // USED REGULAR EXPRESSIONS EXPLANATIONS:
         // \A — WORK WITH THE FIRST CHARACTER IN LINE.
         // (\A[a-z]) — IF THE FIRST CHARACTER IS ALPHABETIC LOWER CASE LATIN, THEN RETURN TRUE.
@@ -23,12 +24,12 @@ namespace DZ_03
         // (\d) — IF IN THE LINE EXIST CHARACTERS "[0 - 9]", THEN RETURN TRUE.
         // (_) — IF IN THE LINE EXIST CHARACTER "_", THEN RETURN TRUE.
         // | — LOGICALC "OR" OPERATOR.
+        #endregion
 
         // METHODS
         
         static void Main(string[] agrs)
         {
-            // THE CREATION OF THE FIRST User-CLASS INSTANCE WITH HELP OF AN OBJECT INITIALIZER.
             User user = new User
             {
                 FirstName = "YAROSLAV",
@@ -41,7 +42,6 @@ namespace DZ_03
 
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-            // TO DISPLAY IN THE CONSOLE AN INFORMATION ABOUT THE FIRST INSTANCE WITH HELP OF THE OVERRIDED METHOD ToString().
             Console.WriteLine(user.ToString());
 
             Console.WriteLine();
@@ -49,7 +49,6 @@ namespace DZ_03
             // THE try-catch-finally CONSTRUCTION TO HANDLE EXCEPTIONS.
             try
             {
-                // THE CONSOLE INPUT AND ASSIGNMENT INPUT OF THE STRING PROPERTIES FirstName AND LastName.
                 Console.Write("PLEASE, ENTER THE FIRST NAME: ");
                 string firstName = Console.ReadLine();
                 Console.WriteLine();
@@ -57,7 +56,7 @@ namespace DZ_03
                 // THE PROGRAM CHECKS INPUT FOR firstName ON EMPTY LINE, ONLY WHITE SPACES AND NULL.
                 if (String.IsNullOrWhiteSpace(firstName))
                 {
-                    throw new FormatException();    // PROGRAM THROWS FORMAT EXCEPTION IN CASE OF firstName INPUT CONSIST OF WHITE SPACES ONLY, OR THE NULL OR AN EMPTY LINE.
+                    throw new FormatException();
                 }
 
                 // IF THE firstName IS TOO LONG, THEN THROW THE EXCEPTION.
@@ -70,7 +69,7 @@ namespace DZ_03
                 // JUST TO MAKE THE SOURCE CODE MORE READABLE, LOCALIZE REGEX IN THE BOOL VALUE.
                 // 0 — MEANS NO OPTION IS SET.
                 bool nameIsMatch = Regex.IsMatch(firstName, _patternNameRegex, 0,  TimeSpan.FromMilliseconds(_timeoutRegexCheckup));
-                // IF THE NAME MATCH PATTERN, TERMINATE THE PROGRAM.
+
                 if (nameIsMatch)
                 {
                     throw new FormatException();
@@ -81,13 +80,11 @@ namespace DZ_03
                 string lastName = Console.ReadLine();
                 Console.WriteLine();
 
-                // THE PROGRAM CHECKS INPUT FOR lastName ON EMPTY LINE, ONLY WHITE SPACES AND NULL.
                 if (String.IsNullOrWhiteSpace(firstName))
                 {
                     throw new FormatException();
                 }
 
-                // IF THE lastName IS TOO LONG, THEN THROW THE EXCEPTION.
                 if (lastName.Length >= 64)
                 {
                     throw new OverflowException();
@@ -117,16 +114,16 @@ namespace DZ_03
                 UserGender gender = (UserGender)byte.Parse(Console.ReadLine());
                 Console.WriteLine();
 
+                #region
                 // IF GENDER IS SOMETHING DIFFERENT FROM GENDER ENUMERATION, TERMINATE THE PROGRAM.
                 // IF IsDefined() METHOD RETURN TRUE — THE PROPER GENDER SELECTED FROM UserGender ENUMERATION, AND DUE TO THE NEGATION OPERATOR THE PROGRAM AVOIDS THE CODE INSIDE if() CONSTRUCTION. ELSE TERMINATE THE PROGRAM.
                 // https://learn.microsoft.com/en-us/dotnet/api/system.enum.isdefined?view=net-8.0
+                #endregion
                 if (!Enum.IsDefined(typeof(UserGender), gender))
                 {
                     throw new OverflowException();
                 }
 
-                // CREATION OF THE SECOND User-CLASS INSTANCE WITH CONSTRUCTOR WHICH HAS PARAMETER Age = age WITH init IN PROPERTY, INITIALIZATION ONLY ONCE AND THEN Age IS IMMUTABLE.
-                // IT IS A COMBINED WAY TO CREATE AN INSTANCE, WE USE THE CONSTRUCTOR WITH A PARAMETER AND THE OBJECT INITIALIZER.
                 User user1 = new User(age)
                 {
                     FirstName = firstName,
@@ -149,7 +146,7 @@ namespace DZ_03
             {
                 Console.WriteLine($"{rangeException.Message}");
             }
-            catch (NullReferenceException nullException)        // AN EXCEPTION HANDLE CONSTRUCTION THAT SHOULD COVER COMPILER WARNINGS ABOUT SO-CALLED NULLS... I HOPE.
+            catch (NullReferenceException nullException)
             {
                 Console.WriteLine($"{nullException.Message}");
             }
