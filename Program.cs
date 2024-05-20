@@ -27,7 +27,7 @@ namespace DZ_03
         // METHODS
         
         static void Main(string[] agrs)
-        {   
+        {
             // THE CREATION OF THE FIRST User-CLASS INSTANCE WITH HELP OF AN OBJECT INITIALIZER.
             User user = new User
             {
@@ -36,6 +36,8 @@ namespace DZ_03
                 Age = 33,
                 Gender = UserGender.Male
             };
+
+            Console.WriteLine("THE OBJECT INITIALIZER USED INSTEAD OF THE DEFAULT CONSTRUCTOR OF User CLASS!");
 
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
@@ -131,6 +133,8 @@ namespace DZ_03
                     LastName = lastName,
                     Gender = gender
                 };
+
+                Console.WriteLine("THE PARAMETRIC CONSTRUCTOR OF User INITIALIZED!");
 
                 Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 

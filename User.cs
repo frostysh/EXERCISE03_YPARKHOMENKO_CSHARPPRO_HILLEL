@@ -39,15 +39,12 @@ namespace DZ_03
         // DEFAULT CONSTRUCTOR WITHOUT PARAMETERS.
         public User()
         {
-            Console.WriteLine("THE DEFAULT CONSTRUCTOR OF User INITIALIZED!");
         }
 
         // CONSTRUCTOR WICH SETUPS Age PROPERTY.
         [SetsRequiredMembers]    // PARAMETER THAT USED CONFIGURE CONSTRUCTOR TO SHOW THAT SETUP AGE WITH DEFAULT VALUE WILL BE DONE IN ANY CASE, AND THAT BECAUSE CALLER IS NOT FORCED TO ASSIGN VALUE ON COMPILATION STAGE... :S AT LEAST AS I HAVE UNDERSTAND.
         public User(byte age)
         {
-            Console.WriteLine("THE PARAMETRIC CONSTRUCTOR OF User INITIALIZED!");
-
             this.Age = age;     // ASSIGN PROPERTY Age VIA CONSTRUCTOR METHOD.
         }
     }
