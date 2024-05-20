@@ -15,15 +15,13 @@ namespace DZ_03
 
         // MAXIMUM ALLOWED VALIDATION TIME.
         private const int _timeoutRegexCheckup = 500;       
-        private const string _patternNameRegex = @"(\A[a-z])|(\W)|(\d)|(_)";
+        private const string _patternNameRegex = @"(\W)|(\d)|(_)";
         #region
         // USED REGULAR EXPRESSIONS EXPLANATIONS:
-        // \A — WORK WITH THE FIRST CHARACTER IN LINE.
-        // (\A[a-z]) — IF THE FIRST CHARACTER IS ALPHABETIC LOWER CASE LATIN, THEN RETURN TRUE.
         // (\W) — IF IN THE LINE EXIST ANY OF CHARACTERS DIFFERENT FROM "_", "[a - z]", "[A - Z]", "[0 - 9]", THEN RETURN TRUE.
         // (\d) — IF IN THE LINE EXIST CHARACTERS "[0 - 9]", THEN RETURN TRUE.
         // (_) — IF IN THE LINE EXIST CHARACTER "_", THEN RETURN TRUE.
-        // | — LOGICALC "OR" OPERATOR.
+        // | — LOGICAL "OR" OPERATOR.
         #endregion
 
         // METHODS
@@ -68,7 +66,7 @@ namespace DZ_03
                 // A VALIDATION WITH HELP OF REGULAR EXPRESSIONS.
                 // JUST TO MAKE THE SOURCE CODE MORE READABLE, LOCALIZE REGEX IN THE BOOL VALUE.
                 // 0 — MEANS NO OPTION IS SET.
-                bool nameIsMatch = Regex.IsMatch(firstName, _patternNameRegex, 0,  TimeSpan.FromMilliseconds(_timeoutRegexCheckup));
+                bool nameIsMatch = Regex.IsMatch(firstName, _patternNameRegex, RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(_timeoutRegexCheckup));
 
                 if (nameIsMatch)
                 {
