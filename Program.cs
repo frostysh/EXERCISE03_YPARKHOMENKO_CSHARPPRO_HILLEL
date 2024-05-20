@@ -130,7 +130,7 @@ namespace DZ_03
             // IF name IS TOO LONG, THEN THROW THE EXCEPTION.
             if (name.Length >= 64)
             {
-                throw new OverflowException();
+                throw new FormatException();
             }
 
             // A VALIDATION WITH HELP OF REGULAR EXPRESSIONS.
