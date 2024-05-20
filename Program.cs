@@ -46,55 +46,20 @@ namespace DZ_03
 
             // THE try-catch-finally CONSTRUCTION TO HANDLE EXCEPTIONS.
             try
-            {
+            {   
+                // INPUT AND VALIDATION OF firstName AND lastName
+                
                 Console.Write("PLEASE, ENTER THE FIRST NAME: ");
                 string firstName = Console.ReadLine();
                 Console.WriteLine();
 
-                // THE PROGRAM CHECKS INPUT FOR firstName ON EMPTY LINE, ONLY WHITE SPACES AND NULL.
-                if (String.IsNullOrWhiteSpace(firstName))
-                {
-                    throw new FormatException();
-                }
+                ValidateName(firstName);
 
-                // IF THE firstName IS TOO LONG, THEN THROW THE EXCEPTION.
-                if (firstName.Length >= 64)
-                {
-                    throw new OverflowException();
-                }
-
-                // A VALIDATION WITH HELP OF REGULAR EXPRESSIONS.
-                // JUST TO MAKE THE SOURCE CODE MORE READABLE, LOCALIZE REGEX IN THE BOOL VALUE.
-                // 0 — MEANS NO OPTION IS SET.
-                bool nameIsMatch = Regex.IsMatch(firstName, _patternNameRegex, RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(_timeoutRegexCheckup));
-
-                if (nameIsMatch)
-                {
-                    throw new FormatException();
-                }
-
-                // LAST NAME SECTION.
                 Console.Write("PLEASE, ENTER THE LAST NAME: ");
                 string lastName = Console.ReadLine();
                 Console.WriteLine();
 
-                if (String.IsNullOrWhiteSpace(firstName))
-                {
-                    throw new FormatException();
-                }
-
-                if (lastName.Length >= 64)
-                {
-                    throw new OverflowException();
-                }
-
-                // REGEX VALIDATION OF LAST NAME.
-                nameIsMatch = Regex.IsMatch(lastName, _patternNameRegex, 0, TimeSpan.FromMilliseconds(_timeoutRegexCheckup));
-                // IF THE NAME MATCH PATTERN, TERMINATE THE PROGRAM.
-                if (nameIsMatch)
-                {
-                    throw new FormatException();
-                }
+                ValidateName(lastName);
 
                 // CONSOLE INPUT OF AGE.
                 Console.Write("PLEASE, ENTER THE AGE: ");
@@ -151,6 +116,31 @@ namespace DZ_03
             catch
             {
                 Console.WriteLine("A CRITICAL ERROR APPEARED!!!");
+            }
+        }
+
+        internal static void ValidateName(string name)
+        {
+            // THE PROGRAM CHECKS INPUT FOR name ON EMPTY LINE, ONLY WHITE SPACES AND NULL.
+            if (String.IsNullOrWhiteSpace(name))
+            {
+                throw new FormatException();
+            }
+
+            // IF name IS TOO LONG, THEN THROW THE EXCEPTION.
+            if (name.Length >= 64)
+            {
+                throw new OverflowException();
+            }
+
+            // A VALIDATION WITH HELP OF REGULAR EXPRESSIONS.
+            // JUST TO MAKE THE SOURCE CODE MORE READABLE, LOCALIZE REGEX IN THE BOOL VALUE.
+            // 0 — MEANS NO OPTION IS SET.
+            bool nameIsMatch = Regex.IsMatch(name, _patternNameRegex, RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(_timeoutRegexCheckup));
+
+            if (nameIsMatch)
+            {
+                throw new FormatException();
             }
         }
     }
