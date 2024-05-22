@@ -15,17 +15,22 @@ namespace DZ_03
 
         // MAXIMUM ALLOWED VALIDATION TIME.
         private const int _timeoutRegexCheckup = 500;       
-        private const string _patternNameRegex = @"(\W)|(\d)|(_)";
+        private const string _patternNameRegex = @"([^a-zA-z\s\'\-])|(\b\s+\b)|(\`)|((\'|\-){2,})|(\s(\'|\-))|((\'|\-)\s)|((\'|\-)$)|(^(\'|\-))|(_)";
         #region
         // USED REGULAR EXPRESSIONS EXPLANATIONS:
-        // (\W) — IF IN THE LINE EXIST ANY OF CHARACTERS DIFFERENT FROM "_", "[a - z]", "[A - Z]", "[0 - 9]", THEN RETURN TRUE.
-        // (\d) — IF IN THE LINE EXIST CHARACTERS "[0 - 9]", THEN RETURN TRUE.
-        // (_) — IF IN THE LINE EXIST CHARACTER "_", THEN RETURN TRUE.
+        // ([^a-zA-z\s]) — MATCHES ANY CHARACTER EXCEPT "`", LETTERS, SPACES, UNDERSCORE "_".
+        // (\b\s+\b) — MATCHES ONE OR MORE SPACES INSIDE THE WORD BOUNDARIES, FOR AN EXAMPLE "YARO  SLAV".
+        // (\`) — MATCHES "`" CHARACTER.
+        // (\'{2,}) — MATCHES TWO OR MORE "'" CHARACTER IN SEQUENCE.
+        // (\s\')|(\`\s) — MATCH "'" AND A WHITESPACE CHARACTER IN SEQUENCE.
+        // (^\`) — MATCHES "'" IN THE FIRST POSITION.
+        // (\-) — MATCHES "-".
+        // (_) — MATCHES UNDERSCORE "_".
         // | — LOGICAL "OR" OPERATOR.
         #endregion
 
         // METHODS
-        
+
         static void Main(string[] agrs)
         {
             User user = new User
@@ -127,7 +132,7 @@ namespace DZ_03
         internal static void ValidateName(string name)
         {
             // THE PROGRAM CHECKS INPUT FOR name ON EMPTY LINE, ONLY WHITE SPACES AND NULL.
-            if (String.IsNullOrWhiteSpace(name))
+            if (String.IsNullOrEmpty(name))
             {
                 throw new FormatException();
             }
