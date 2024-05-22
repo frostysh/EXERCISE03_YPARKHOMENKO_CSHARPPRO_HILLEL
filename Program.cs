@@ -59,12 +59,14 @@ namespace DZ_03
                 Console.WriteLine();
 
                 ValidateName(firstName);
+                firstName = DeleteSpacesAfterBefore(firstName);
 
                 Console.Write("PLEASE, ENTER THE LAST NAME: ");
                 string lastName = Console.ReadLine();
                 Console.WriteLine();
 
                 ValidateName(lastName);
+                lastName = DeleteSpacesAfterBefore(lastName);
 
                 // CONSOLE INPUT OF AGE.
                 Console.Write("PLEASE, ENTER THE AGE: ");
@@ -127,6 +129,13 @@ namespace DZ_03
             {
                 Console.WriteLine("A CRITICAL ERROR APPEARED!!!");
             }
+        }
+
+        // THE METHOD DELETES ALL WHITESPACES.
+        internal static string DeleteSpacesAfterBefore(string name)
+        {
+            name = Regex.Replace(name, @"\s+", string.Empty);
+            return name;
         }
 
         internal static void ValidateName(string name)
